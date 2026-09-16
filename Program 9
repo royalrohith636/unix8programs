@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Terminal Lock Program
+
+pass="my pass"
+
+echo "Terminal locked"
+read -n 1 -s -r -p "Press any key to unlock"
+echo
+read -s -p "Enter password: " input
+echo
+
+if [ "$input" = "$pass" ]; then
+    echo "Terminal unlocked"
+else
+    echo "Wrong Password, Access denied"
+fi
