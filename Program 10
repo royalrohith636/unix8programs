@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo "===== PAYROLL SYSTEM ====="
+
+read -p "Enter Employee Name: " name
+read -p "Enter Employee ID: " id
+read -p "Enter Basic Salary: " basic
+
+# Salary components
+da=$(echo "scale=2; $basic * 0.10" | bc)
+hra=$(echo "scale=2; $basic * 0.20" | bc)
+pf=$(echo "scale=2; $basic * 0.12" | bc)
+
+# Gross and Net Salary
+gross=$(echo "scale=2; $basic + $da + $hra" | bc)
+net=$(echo "scale=2; $gross - $pf" | bc)
+
+echo
+echo "===== PAYSLIP ====="
+echo "Employee Name : $name"
+echo "Employee ID   : $id"
+echo "Basic Salary  : $basic"
+echo "DA (10%)      : $da"
+echo "HRA (20%)     : $hra"
+echo "PF (12%)      : $pf"
+echo "Gross Salary  : $gross"
+echo "Net Salary    : $net"
